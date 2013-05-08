@@ -80,11 +80,11 @@
     [timeInfo release];
     
     XCProgressView *progress = [[XCProgressView alloc] initWithFrame:[cf mainViewRects:@"progress"]];
-    progress.maxValue = 100.0;
-    progress.minValue = 0.0;
+    progress.maxValue = 80.0;
+    progress.nowValue = 80.0;
+    progress.minValue = 30.0;
     progress.autoColor = YES;
     progress.animated = YES;
-    progress.nowValue = 40.0;
     //progress.progressTintColor = [UIColor blueColor];
     progress.trackTintColor = [UIColor blackColor];
     progress.tag = 107;
@@ -204,11 +204,15 @@
         [SharedSettings settings].sLP = sett.nowLP;
         [SharedSettings settings].alertLP = sett.alertLP;
         [SharedSettings settings].speed = sett.speed;
-        [SharedSettings settings].running = YES;
         [SharedSettings settings].sTime = [self stringFromDate:[NSDate date]];
         [sett removeFromSuperview];
         [self openInfo];
         self.onBtn = 201;
+        XCProgressView *progress = (XCProgressView*)[self.view viewWithTag:107];
+        progress.minValue = 0;
+        progress.nowValue = [SharedSettings settings].nowLP;
+        progress.maxValue = [SharedSettings settings].allLP;
+        [SharedSettings settings].running = YES;
     }
 }
 - (void)initTimer
@@ -221,19 +225,19 @@
     if ([SharedSettings settings].running) {
         NSDate *SDate = [self dateFromString:[SharedSettings settings].sTime];
         int sec = [SDate timeIntervalSinceNow];
-        NSLog(@"sec=%d",sec);
-        if (sec > 0) {
-            [SharedSettings settings].running = NO;//提醒錯誤
-        } else {
-            //當前LP＝起始LP＋超過的時間÷每LP速度
-            [SharedSettings settings].nowLP = [SharedSettings settings].sLP+(sec*(-1))/[SharedSettings settings].speed;
-            
-            NSLog(@"[SharedSettings settings].nowLP=%d",[SharedSettings settings].speed);
-            //警報剩餘時間＝（提醒LP﹣當前LP）＊每秒速度
-            [SharedSettings settings].alertLPtime = ([SharedSettings settings].alertLP - (sec*(-1.0))/[SharedSettings settings].speed) * [SharedSettings settings].speed;
-            //總剩餘時間＝（總LP﹣當前LP）＊每秒速度
-            [SharedSettings settings].allLPtime = ([SharedSettings settings].allLP - (sec*(-1.0))/[SharedSettings settings].speed) * [SharedSettings settings].speed;
-        }
+        float aLP = sec*(-1.0)/[SharedSettings settings].speed;
+        float nowLP = [SharedSettings settings].sLP + aLP;
+        [SharedSettings settings].nowLP = nowLP; //-1
+        
+        [SharedSettings settings].alertLPtime = ([SharedSettings settings].alertLP - nowLP) * [SharedSettings settings].speed;
+        
+        [SharedSettings settings].allLPtime = ([SharedSettings settings].allLP - nowLP) * [SharedSettings settings].speed;
+        
+        int nextLP = [SharedSettings settings].allLPtime%[SharedSettings settings].speed;
+        UILabel *timeInfo = (UILabel*)[self.view viewWithTag:106];
+        timeInfo.text = [NSString stringWithFormat:@"%d/%d  剩餘：%02d:%02d",[SharedSettings settings].nowLP,[SharedSettings settings].allLP,nextLP/60,nextLP-nextLP/60*60];
+        XCProgressView *progress = (XCProgressView*)[self.view viewWithTag:107];
+        progress.nowValue = [SharedSettings settings].nowLP*1.0;
     }
 }
 - (NSDate *)dateFromString:(NSString *)dateString {

@@ -26,16 +26,20 @@
 - (float)calcValue:(float)nowValue
 {
     float now = (self.maxValue-self.minValue)*0.01*nowValue;
+    NSLog(@"self.maxValue=%f",self.maxValue);
+    NSLog(@"self.minValue=%f",self.minValue);
+    NSLog(@"nowValue=%f",nowValue);
+    NSLog(@"now=%f",now);
     return now*0.01;
 }
 - (void)setNowValue:(float)nowValue
 {
     if (nowValue > _maxValue) {
-        NSLog(@"XCProgress:超出最大值范围，当前值变更为%f",_maxValue);
+        NSLog(@"XCProgress:%f超出最大值范围，当前值变更为%f",nowValue,_maxValue);
         nowValue = _maxValue;
     }
     if (nowValue < _minValue) {
-        NSLog(@"XCProgress:低于最小值范围，当前值变更为%f",_minValue);
+        NSLog(@"XCProgress:%f低于最小值范围，当前值变更为%f",nowValue,_minValue);
         nowValue = _minValue;
     }
     float newVol = [self calcValue:nowValue];
@@ -46,7 +50,7 @@
 {
     float max = [self calcValue:maxValue];
     if (self.progress > max) {
-        NSLog(@"XCProgress:最大值小于当前值，当前值变更为%f",maxValue);
+        NSLog(@"XCProgress:最大值小于当前值%f，当前值变更为%f",_nowValue,maxValue);
         [self toProgress:max];
         _nowValue = maxValue;
     }
@@ -56,7 +60,7 @@
 {
     float min = [self calcValue:minValue];
     if (self.progress < min) {
-        NSLog(@"XCProgress:最小值大于当前值，当前值变更为%f",minValue);
+        NSLog(@"XCProgress:最小值大于当前值%f，当前值变更为%f",_nowValue,minValue);
         [self toProgress:min];
         _nowValue = minValue;
     }

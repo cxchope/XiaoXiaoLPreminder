@@ -98,8 +98,11 @@
     [self.tableArray setObject:[self time:NO] atIndexedSubscript:1];
     
     [self.tableArray setObject:[NSString stringWithFormat:@"LP提醒值：%d",[SharedSettings settings].alertLP] atIndexedSubscript:3];
+    
     [self.tableArray setObject:[NSString stringWithFormat:@"距離最近一次發出提醒還有：%@",[self timeCalc:[SharedSettings settings].alertLPtime]] atIndexedSubscript:4];
+    
     [self.tableArray setObject:[NSString stringWithFormat:@"LP完全恢復大約還需要：%@",[self timeCalc:[SharedSettings settings].allLPtime]] atIndexedSubscript:5];
+    
     [self.tableView reloadData];
 }
 - (NSString*)timeCalc:(int)s
