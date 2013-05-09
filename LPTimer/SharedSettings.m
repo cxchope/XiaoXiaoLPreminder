@@ -61,7 +61,9 @@
         [SharedSettings settings].speed = [setting integerForKey:@"speed"];
         [SharedSettings settings].alertLP = [setting integerForKey:@"alertLP"];
         [SharedSettings settings].nowLP = [setting integerForKey:@"nowLP"];
-        [SharedSettings settings].running = [setting boolForKey:@"running"];
+        [SharedSettings settings].running = NO;
+        [SharedSettings settings].readyrunning = [setting boolForKey:@"readyrunning"];
+        NSLog(@"载入进度=%d",[SharedSettings settings].readyrunning);
     }
 }
 + (void)saveSettings
@@ -74,12 +76,12 @@
     [setting setInteger:[SharedSettings settings].speed forKey:@"speed"];
     [setting setInteger:[SharedSettings settings].alertLP forKey:@"alertLP"];
     [setting setInteger:[SharedSettings settings].nowLP forKey:@"nowLP"];
-    [setting setBool:[SharedSettings settings].running forKey:@"running"];
+    [setting setBool:[SharedSettings settings].readyrunning forKey:@"readyrunning"];
+    NSLog(@"保存进度=%d",[SharedSettings settings].readyrunning);
     [setting synchronize];
 }
 + (void)resetSettings
 {
-    [SharedSettings settings].noFirstRUN = NO;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *destDateString = [dateFormatter stringFromDate:[NSDate date]];
@@ -91,5 +93,10 @@
     [SharedSettings settings].alertLP = 0;
     [SharedSettings settings].nowLP = 0;
     [SharedSettings settings].running = NO;
+    [SharedSettings settings].readyrunning = NO;
+}
++ (void)openGAME
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"jp.klab.lovelive:"]];
 }
 @end

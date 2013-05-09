@@ -10,4 +10,9 @@
 
 @interface XCLocalNotification : NSObject
 
+//本地通知和计时器
++ (void)startLocalNotification:(NSString*)text TimeInterval:(int)period;
++ (void)startLocalNotification:(NSString*)text Date:(NSDate*)Date;
++ (void)deleteLocalNotification;
+
 @end

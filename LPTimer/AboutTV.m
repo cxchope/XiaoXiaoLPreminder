@@ -88,16 +88,12 @@
     if (indexPath.row == 6) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/jp/app/raburaibu!-sukuruaidorufesutibaru/id626776655?mt=8"]];
     } else if (indexPath.row == 7) {
-        [self openGame];
+        [SharedSettings openGAME];
     } else if (indexPath.row == 2) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://plus.google.com/105938465531761409080/about"]];
     } else if (indexPath.row == 9 || indexPath.row == 10) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://creativecommons.org/licenses/by-nc/3.0/"]];
     }
-}
-- (void)openGame
-{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"jp.klab.lovelive:"]];
 }
 - (void)tt:(NSNotification *)no
 {

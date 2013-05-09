@@ -26,12 +26,16 @@
 		94042451173A51B0002FB4FE /* 144.png in Resources */ = {isa = PBXBuildFile; fileRef = 94042450173A51B0002FB4FE /* 144.png */; };
 		94042453173A51B6002FB4FE /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 94042452173A51B6002FB4FE /* 114.png */; };
 		94042455173A51B9002FB4FE /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 94042454173A51B9002FB4FE /* 57.png */; };
+		9418A13E173B8E1D00C162C3 /* title.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9418A13D173B8E1D00C162C3 /* title.jpg */; };
+		9418A141173B9D4C00C162C3 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9418A140173B9D4C00C162C3 /* UIView+Hierarchy.m */; };
+		9418A145173BA4ED00C162C3 /* ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9418A144173BA4ED00C162C3 /* ipad.xib */; };
 		942CE6E317388FB5003AA021 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 942CE6E217388FB5003AA021 /* rank.png */; };
 		942CE6E6173897A9003AA021 /* XCNumberEditer.m in Sources */ = {isa = PBXBuildFile; fileRef = 942CE6E5173897A9003AA021 /* XCNumberEditer.m */; };
 		942CE6EA1738BC99003AA021 /* SharedSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 942CE6E91738BC99003AA021 /* SharedSettings.m */; };
 		94DBC914173B4263009CD300 /* diglog.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DBC912173B4263009CD300 /* diglog.png */; };
 		94DBC915173B4263009CD300 /* okbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DBC913173B4263009CD300 /* okbtn.png */; };
 		94DBC917173B4365009CD300 /* ll.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DBC916173B4365009CD300 /* ll.png */; };
+		94DBCA3F173B5E6B009CD300 /* XCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DBCA3E173B5E6B009CD300 /* XCAlertView.m */; };
 		94DFD37A17374D4F0049F652 /* bgm.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 94DFD36F17374D4F0049F652 /* bgm.m4a */; };
 		94DFD37B17374D4F0049F652 /* button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DFD37017374D4F0049F652 /* button1.png */; };
 		94DFD37C17374D4F0049F652 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DFD37117374D4F0049F652 /* button2.png */; };
@@ -83,6 +87,10 @@
 		94042450173A51B0002FB4FE /* 144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 144.png; path = ../144.png; sourceTree = "<group>"; };
 		94042452173A51B6002FB4FE /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = ../114.png; sourceTree = "<group>"; };
 		94042454173A51B9002FB4FE /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = ../57.png; sourceTree = "<group>"; };
+		9418A13D173B8E1D00C162C3 /* title.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = title.jpg; sourceTree = "<group>"; };
+		9418A13F173B9D4C00C162C3 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
+		9418A140173B9D4C00C162C3 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
+		9418A144173BA4ED00C162C3 /* ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ipad.xib; sourceTree = "<group>"; };
 		942CE6E217388FB5003AA021 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
 		942CE6E4173897A9003AA021 /* XCNumberEditer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCNumberEditer.h; sourceTree = "<group>"; };
 		942CE6E5173897A9003AA021 /* XCNumberEditer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCNumberEditer.m; sourceTree = "<group>"; };
@@ -91,6 +99,8 @@
 		94DBC912173B4263009CD300 /* diglog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diglog.png; sourceTree = "<group>"; };
 		94DBC913173B4263009CD300 /* okbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okbtn.png; sourceTree = "<group>"; };
 		94DBC916173B4365009CD300 /* ll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ll.png; sourceTree = "<group>"; };
+		94DBCA3D173B5E6B009CD300 /* XCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAlertView.h; sourceTree = "<group>"; };
+		94DBCA3E173B5E6B009CD300 /* XCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCAlertView.m; sourceTree = "<group>"; };
 		94DFD36F17374D4F0049F652 /* bgm.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgm.m4a; sourceTree = "<group>"; };
 		94DFD37017374D4F0049F652 /* button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button1.png; sourceTree = "<group>"; };
 		94DFD37117374D4F0049F652 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
@@ -186,7 +196,7 @@
 				00EC6E9A17366DE000E5697B /* AppDelegate.h */,
 				00EC6E9B17366DE000E5697B /* AppDelegate.m */,
 				94DFD392173787460049F652 /* 主窗体 */,
-				94DFD38517374DDB0049F652 /* iphone.xib */,
+				9418A143173BA4D200C162C3 /* 设计用 */,
 				00EC6E9217366DE000E5697B /* Supporting Files */,
 				94DFD391173787340049F652 /* 本地消息管理 */,
 				94DFD38D173759960049F652 /* 位置和尺寸 */,
@@ -196,6 +206,8 @@
 				94DFD3AE1737BE4E0049F652 /* 背景音樂控制 */,
 				002643801737F80200CE92C5 /* 參數輸入 */,
 				942CE6E7173897AC003AA021 /* XCNumberEditer */,
+				94DBCA40173B5E76009CD300 /* XC提示框 */,
+				9418A142173B9D5800C162C3 /* z軸 */,
 			);
 			path = LPTimer;
 			sourceTree = "<group>";
@@ -212,6 +224,24 @@
 				00EC6EA117366DE000E5697B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9418A142173B9D5800C162C3 /* z軸 */ = {
+			isa = PBXGroup;
+			children = (
+				9418A13F173B9D4C00C162C3 /* UIView+Hierarchy.h */,
+				9418A140173B9D4C00C162C3 /* UIView+Hierarchy.m */,
+			);
+			name = "z軸";
+			sourceTree = "<group>";
+		};
+		9418A143173BA4D200C162C3 /* 设计用 */ = {
+			isa = PBXGroup;
+			children = (
+				94DFD38517374DDB0049F652 /* iphone.xib */,
+				9418A144173BA4ED00C162C3 /* ipad.xib */,
+			);
+			name = "设计用";
 			sourceTree = "<group>";
 		};
 		942CE6E7173897AC003AA021 /* XCNumberEditer */ = {
@@ -232,9 +262,19 @@
 			name = "全局變量和方法";
 			sourceTree = "<group>";
 		};
+		94DBCA40173B5E76009CD300 /* XC提示框 */ = {
+			isa = PBXGroup;
+			children = (
+				94DBCA3D173B5E6B009CD300 /* XCAlertView.h */,
+				94DBCA3E173B5E6B009CD300 /* XCAlertView.m */,
+			);
+			name = "XC提示框";
+			sourceTree = "<group>";
+		};
 		94DFD36E17374D390049F652 /* SC */ = {
 			isa = PBXGroup;
 			children = (
+				9418A13D173B8E1D00C162C3 /* title.jpg */,
 				94DBC916173B4365009CD300 /* ll.png */,
 				94DBC912173B4263009CD300 /* diglog.png */,
 				94DBC913173B4263009CD300 /* okbtn.png */,
@@ -406,6 +446,8 @@
 				94DBC914173B4263009CD300 /* diglog.png in Resources */,
 				94DBC915173B4263009CD300 /* okbtn.png in Resources */,
 				94DBC917173B4365009CD300 /* ll.png in Resources */,
+				9418A13E173B8E1D00C162C3 /* title.jpg in Resources */,
+				9418A145173BA4ED00C162C3 /* ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +476,8 @@
 				0026437F1737F7F400CE92C5 /* settCell.m in Sources */,
 				942CE6E6173897A9003AA021 /* XCNumberEditer.m in Sources */,
 				942CE6EA1738BC99003AA021 /* SharedSettings.m in Sources */,
+				94DBCA3F173B5E6B009CD300 /* XCAlertView.m in Sources */,
+				9418A141173B9D4C00C162C3 /* UIView+Hierarchy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,6 +34,9 @@
         [thePlayer prepareToPlay];
         [thePlayer setVolume:1];
         thePlayer.numberOfLoops = -1;
+        if (![SharedSettings settings].noFirstRUN) {
+            [setting setBool:YES forKey:@"Music"];
+        }
         if ([setting boolForKey:@"Music"]) {
             txt.text = @"♪ O N";
             self.playing = YES;

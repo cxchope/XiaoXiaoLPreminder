@@ -10,4 +10,7 @@
 
 @interface YashiViewController : UIViewController
 @property (nonatomic, assign) int onBtn;
+@property (nonatomic, assign) int logojs;
+@property (nonatomic, assign) BOOL isSentLocalNot;
+@property (nonatomic, assign) BOOL runnshow;
 @end

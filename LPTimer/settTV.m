@@ -98,6 +98,8 @@
         if ([modestr isEqualToString:@"allLP"]) {
             self.allLP = num;
             [self.tableArray setObject:[NSString stringWithFormat:@"總共LP最大值：%d",self.allLP] atIndexedSubscript:3];
+            self.alertLP = num;
+            [self.tableArray setObject:[NSString stringWithFormat:@"LP提醒值：%d",self.alertLP] atIndexedSubscript:5];
         } else if ([modestr isEqualToString:@"nowLP"]) {
             self.nowLP = num;
             [self.tableArray setObject:[NSString stringWithFormat:@"當前剩餘的LP：%d",self.nowLP] atIndexedSubscript:4];

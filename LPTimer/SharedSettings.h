@@ -23,12 +23,14 @@
 //限制图片宽度，计算高度
 + (float)pictureHeight:(UIImage *)image Width:(float)width;
 
++ (void)openGAME;
 #pragma mark - 全局变量
 //是否还有正在进行微博类网络通信的任务
 @property (nonatomic, assign) BOOL isNetworkBusy;
 //第一次運行
 @property (nonatomic, assign) BOOL noFirstRUN;
 @property (nonatomic, assign) BOOL running;
+@property (nonatomic, assign) BOOL readyrunning;
 //开始时间
 @property (nonatomic, retain) NSString *sTime;
 @property (nonatomic, assign) int sLP;
