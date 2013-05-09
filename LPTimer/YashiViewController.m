@@ -136,7 +136,11 @@
         btnTxt.tag = 300 + i;
         [self.view addSubview:btnTxt];
     }
-    [self openAbout];
+    if ([SharedSettings settings].running) {
+        [self openInfo];
+    } else {
+        [self openAbout];
+    }
     [cf release];
 }
 - (void)removeOldView
@@ -255,8 +259,11 @@
 
 - (void)startTask
 {
-    [self removeOldView];
-    [self openInfo];
+    UIImageView *title = (UIImageView*)[self.view viewWithTag:901];
+    if (!title) {
+        [self removeOldView];
+        [self openInfo];
+    }
     self.onBtn = 201;
     XCProgressView *progress = (XCProgressView*)[self.view viewWithTag:107];
     progress.minValue = 0;
@@ -366,17 +373,13 @@
         float aLP = sec*(-1.0)/[SharedSettings settings].speed;
         float nowLP = [SharedSettings settings].sLP + aLP;
         [SharedSettings settings].nowLP = nowLP; //-1
-        
         [SharedSettings settings].alertLPtime = ([SharedSettings settings].alertLP - nowLP) * [SharedSettings settings].speed;
-        
         [SharedSettings settings].allLPtime = ([SharedSettings settings].allLP - nowLP) * [SharedSettings settings].speed;
-        
         int nextLP = [SharedSettings settings].allLPtime%[SharedSettings settings].speed;
         UILabel *timeInfo = (UILabel*)[self.view viewWithTag:106];
         timeInfo.text = [NSString stringWithFormat:@"%d/%d  剩餘：%02d:%02d",[SharedSettings settings].nowLP,[SharedSettings settings].allLP,nextLP/60,nextLP-nextLP/60*60];
         XCProgressView *progress = (XCProgressView*)[self.view viewWithTag:107];
         progress.nowValue = [SharedSettings settings].nowLP*1.0;
-        
         if (!self.isSentLocalNot) {
             NSDate *newalt = [[NSDate new] dateByAddingTimeInterval:[SharedSettings settings].alertLPtime];
             [XCLocalNotification startLocalNotification:@"LP值恢復提醒！查看此消息可以直接進入遊戲~" Date:newalt];
