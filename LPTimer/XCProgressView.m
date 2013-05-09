@@ -25,12 +25,9 @@
 
 - (float)calcValue:(float)nowValue
 {
-    float now = (self.maxValue-self.minValue)*0.01*nowValue;
-    NSLog(@"self.maxValue=%f",self.maxValue);
-    NSLog(@"self.minValue=%f",self.minValue);
-    NSLog(@"nowValue=%f",nowValue);
-    NSLog(@"now=%f",now);
-    return now*0.01;
+//    float now = 1-(self.maxValue-self.minValue)*0.001)*nowValue;
+    float now = (nowValue-self.minValue)/(self.maxValue-self.minValue);
+    return now;
 }
 - (void)setNowValue:(float)nowValue
 {
@@ -70,11 +67,14 @@
 {
     if (self.autoColor) {
         float unit = 1.0/3;
-        if (value > unit*2 && self.progressTintColor != [UIColor blueColor]) {
+        if (value > unit*2) {
+            if (self.progressTintColor != [UIColor blueColor])
             self.progressTintColor = [UIColor blueColor];
-        } else if (value > unit*1 && self.progressTintColor != [UIColor yellowColor]) {
+        } else if (value > unit*1) {
+            if (self.progressTintColor != [UIColor yellowColor])
             self.progressTintColor = [UIColor yellowColor];
-        } else if (value > unit*0 && self.progressTintColor != [UIColor redColor]) {
+        } else if (value > unit*0) {
+            if (self.progressTintColor != [UIColor redColor])
             self.progressTintColor = [UIColor redColor];
         }
     }

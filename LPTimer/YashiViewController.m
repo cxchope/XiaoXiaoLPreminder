@@ -80,9 +80,9 @@
     [timeInfo release];
     
     XCProgressView *progress = [[XCProgressView alloc] initWithFrame:[cf mainViewRects:@"progress"]];
-    progress.maxValue = 80.0;
-    progress.nowValue = 80.0;
-    progress.minValue = 30.0;
+    progress.maxValue = 0.0;
+    progress.minValue = 0.0;
+    progress.nowValue = 0.0;
     progress.autoColor = YES;
     progress.animated = YES;
     //progress.progressTintColor = [UIColor blueColor];
