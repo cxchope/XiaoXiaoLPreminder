@@ -7,14 +7,14 @@
 //
 
 #import "settCell.h"
-
+#import "XCFrame.h"
 @implementation settCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.textLabel.font = [UIFont systemFontOfSize:15];
+        self.textLabel.font = [XCFrame tableFont:1];
         self.textLabel.shadowColor = [UIColor orangeColor];
         self.textLabel.shadowOffset = CGSizeMake(2, 2);
 //        UISlider *sil = [[UISlider alloc] initWithFrame:CGRectMake(self.frame.size.width-50, 2, 100, 9)];

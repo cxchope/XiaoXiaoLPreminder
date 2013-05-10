@@ -31,6 +31,7 @@
 }
 + (void)startLocalNotification:(NSString*)text Date:(NSDate*)Date
 {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     UILocalNotification *notification=[[UILocalNotification alloc] init];
     if (notification!=nil)
     {

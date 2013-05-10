@@ -7,7 +7,7 @@
 //
 
 #import "BackGroundMusicView.h"
-
+#import "XCFrame.h"
 @implementation BackGroundMusicView
 @synthesize thePlayer = _thePlayer, playing = _playing;
 - (id)initWithFrame:(CGRect)frame
@@ -22,7 +22,7 @@
         
         NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
         UILabel *txt = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-        txt.font = [UIFont systemFontOfSize:10];
+        txt.font = [XCFrame tableFont:2];
         txt.backgroundColor = [UIColor clearColor];
         txt.tag = 100;
         

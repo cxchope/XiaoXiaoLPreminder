@@ -7,7 +7,6 @@
 //
 
 #import "SharedSettings.h"
-
 @implementation SharedSettings
 + (SharedSettings *)settings {
     static SharedSettings *settings;
@@ -88,15 +87,22 @@
     [dateFormatter release];
     [SharedSettings settings].sTime = destDateString;
     [SharedSettings settings].sLP = 0;
-    [SharedSettings settings].allLP = 0;
+    [SharedSettings settings].allLP = 1;
     [SharedSettings settings].speed = 360;
-    [SharedSettings settings].alertLP = 0;
+    [SharedSettings settings].alertLP = 1;
     [SharedSettings settings].nowLP = 0;
     [SharedSettings settings].running = NO;
     [SharedSettings settings].readyrunning = NO;
 }
 + (void)openGAME
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"jp.klab.lovelive:"]];
+    NSURL *gameuid = [NSURL URLWithString:@"fb119355104914816:/"];
+    if ([[UIApplication sharedApplication] canOpenURL:gameuid]) {
+        
+    }
+    
+    
+
+    [[UIApplication sharedApplication] openURL:gameuid];
 }
 @end

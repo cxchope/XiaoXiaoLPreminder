@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface XCFrame : NSObject
++ (int)deviceID;
 - (int)deviceID;
 + (CGRect)tableRect;
 - (CGRect)tableRect;
 - (CGRect)mainViewRects:(NSString*)objectName;
 - (CGRect)mainBtnRects:(NSString*)objectName;
 - (CGRect)mainBtnRectsT:(NSString*)objectName;
+
+- (UIFont*)mainFont:(NSString*)objectName;
++ (UIFont*)tableFont:(int)objectId;
++ (CGFloat)cellHeight;
 @end

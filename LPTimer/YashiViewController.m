@@ -44,7 +44,9 @@
     [cf release];
     
     UIImageView *title = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"title" ofType:@"jpg"]]];
-    title.frame = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width+20);
+    int xp = 0;
+    if ([XCFrame deviceID] == 3) xp = 20;
+    title.frame = CGRectMake(0, 0, self.view.frame.size.height+xp, self.view.frame.size.width+20);
     title.backgroundColor = [UIColor blackColor];
     title.contentMode = UIViewContentModeScaleAspectFit;
     title.tag = 901;
@@ -74,7 +76,7 @@
     
     UILabel *titlebarL = [[UILabel alloc] initWithFrame:[cf mainViewRects:@"titlebarL"]];
     titlebarL.text = @"LP恢復計時器";
-    titlebarL.font = [UIFont systemFontOfSize:15];
+    titlebarL.font = [cf mainFont:@"titlebarL"];
     titlebarL.backgroundColor = [UIColor clearColor];
     titlebarL.tag = 103;
     [self.view addSubview:titlebarL];
@@ -88,7 +90,7 @@
     
     UILabel *lpTxt = [[UILabel alloc] initWithFrame:[cf mainViewRects:@"lpTxt"]];
     lpTxt.text = @"LP";
-    lpTxt.font = [UIFont systemFontOfSize:17];
+    lpTxt.font = [cf mainFont:@"lpTxt"];
     lpTxt.backgroundColor = [UIColor clearColor];
     lpTxt.textColor = [UIColor colorWithRed:34/255.0 green:187/255.0 blue:204/255.0 alpha:1.0];
     lpTxt.tag = 105;
@@ -97,7 +99,7 @@
     
     UILabel *timeInfo = [[UILabel alloc] initWithFrame:[cf mainViewRects:@"timeInfo"]];
     timeInfo.text = @"00/00   剩餘：00:00";
-    timeInfo.font = [UIFont systemFontOfSize:17];
+    timeInfo.font = [cf mainFont:@"timeInfo"];
     timeInfo.backgroundColor = [UIColor clearColor];
     timeInfo.textColor = [UIColor purpleColor];//[UIColor colorWithRed:62/255.0 green:169/255.0 blue:1.0 alpha:1.0];
     timeInfo.tag = 106;
@@ -131,7 +133,7 @@
         
         UILabel *btnTxt = [[UILabel alloc] initWithFrame:[cf mainBtnRectsT:[NSString stringWithFormat:@"btn%d",i]]];
         btnTxt.text = [btntxts objectAtIndex:i-1];
-        btnTxt.font = [UIFont systemFontOfSize:12];
+        btnTxt.font = [cf mainFont:@"btnTxt"];
         btnTxt.backgroundColor = [UIColor clearColor];
         btnTxt.tag = 300 + i;
         [self.view addSubview:btnTxt];
@@ -274,11 +276,20 @@
 - (void)stopTimer:(BOOL)isAutoStop
 {
     [XCLocalNotification deleteLocalNotification];
+//    XCProgressView *progress = (XCProgressView*)[self.view viewWithTag:107];
+//    progress.minValue = 0;
+//    progress.maxValue = 1;
+//    progress.nowValue = 1;
+    [SharedSettings settings].nowLP = [SharedSettings settings].alertLPtime;
+    [SharedSettings settings].alertLPtime = 0;
+    [SharedSettings settings].allLPtime = 0;
+
     [SharedSettings settings].running = NO;
     [SharedSettings settings].readyrunning = NO;
     self.isSentLocalNot = NO;
     [SharedSettings saveSettings];
     if (isAutoStop) {
+        [self openAlt:@"到達預設時間！\n計時器已自動停止。\n\n遊戲已經自動啟動，如果遊戲未能啟動，請聯繫作者更新。"];
         [SharedSettings openGAME];
     } else {
         [self openAlt:@"計時已經停止，數值不再更新。"];
@@ -308,7 +319,9 @@
             UIImageView *title = (UIImageView*)[self.view viewWithTag:901];
             [title setImage:nil];
             [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width-20, self.view.frame.size.height);
+            int xp = 0;
+            if ([XCFrame deviceID] == 3) xp = 20;
+            self.view.frame = CGRectMake(self.view.frame.origin.x+xp, self.view.frame.origin.y, self.view.frame.size.width-20, self.view.frame.size.height);
             XCProgressView *xcp = [[XCProgressView alloc] initWithFrame:CGRectMake(50, self.view.frame.size.width/2, self.view.frame.size.height-100, 10)];
             xcp.minValue = 4;
             xcp.maxValue = 10;
@@ -318,11 +331,18 @@
             xcp.progressTintColor = [UIColor whiteColor];
             xcp.tag = 902;
             [self.view addSubview:xcp];
-            UILabel *zz = [[UILabel alloc] initWithFrame:CGRectMake(0, xcp.frame.origin.y - 20, self.view.frame.size.height, 10)];
+            UILabel *zz = [[UILabel alloc] initWithFrame:CGRectMake(0, xcp.frame.origin.y - 28, self.view.frame.size.height, 14)];
             zz.backgroundColor = [UIColor clearColor];
             zz.textColor = [UIColor lightGrayColor];
             zz.font = [UIFont systemFontOfSize:12];
-            zz.text = @"正在為第一次運行做準備……";
+            int devID = [XCFrame deviceID];
+            if (devID == 1) {
+                zz.text = @"第一次運行,正在為您的 非寬屏iPhone/Touch 優化佈局……";
+            } else if (devID == 2) {
+                zz.text = @"第一次運行,正在為您的 寬屏iPhone/Touch 優化佈局……";
+            } else if (devID == 3) {
+                zz.text = @"第一次運行,正在為您的 iPad 優化佈局……";
+            }
             #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_6_0
             zz.textAlignment = UITextAlignmentCenter;
             #else
@@ -359,7 +379,9 @@
             [self UII];
         } else {
             [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width-20, self.view.frame.size.height);
+            int xp = 0;
+            if ([XCFrame deviceID] == 3) xp = 20;
+            self.view.frame = CGRectMake(self.view.frame.origin.x+xp, self.view.frame.origin.y, self.view.frame.size.width-20, self.view.frame.size.height);
         }
     }
     self.logojs++;
@@ -375,24 +397,30 @@
         [SharedSettings settings].nowLP = nowLP; //-1
         [SharedSettings settings].alertLPtime = ([SharedSettings settings].alertLP - nowLP) * [SharedSettings settings].speed;
         [SharedSettings settings].allLPtime = ([SharedSettings settings].allLP - nowLP) * [SharedSettings settings].speed;
-        int nextLP = [SharedSettings settings].allLPtime%[SharedSettings settings].speed;
-        UILabel *timeInfo = (UILabel*)[self.view viewWithTag:106];
-        timeInfo.text = [NSString stringWithFormat:@"%d/%d  剩餘：%02d:%02d",[SharedSettings settings].nowLP,[SharedSettings settings].allLP,nextLP/60,nextLP-nextLP/60*60];
-        XCProgressView *progress = (XCProgressView*)[self.view viewWithTag:107];
-        progress.nowValue = [SharedSettings settings].nowLP*1.0;
-        if (!self.isSentLocalNot) {
-            NSDate *newalt = [[NSDate new] dateByAddingTimeInterval:[SharedSettings settings].alertLPtime];
-            [XCLocalNotification startLocalNotification:@"LP值恢復提醒！查看此消息可以直接進入遊戲~" Date:newalt];
-            self.isSentLocalNot = YES;
-            [self openAlt:[NSString stringWithFormat:@"新的計時任務已經啓動。\n到達你設定的時間後，將通過通知中心提醒你。\n可以在 系統設置->通知 中修改提醒方式。\n計時中可以將本程序最小化。\n將在%@發出提醒。",[self stringFromDate:newalt]]];
-        }
-        UILabel *titlebarL = (UILabel*)[self.view viewWithTag:103];
-        if (self.runnshow) {
-            titlebarL.text = @"LP恢復計時器：正在運行 ◈";
+        if ([SharedSettings settings].nowLP >= [SharedSettings settings].alertLPtime) {
+            [self stopTimer:YES];
         } else {
-            titlebarL.text = @"LP恢復計時器：正在運行";
+            int nextLP = [SharedSettings settings].allLPtime%[SharedSettings settings].speed;
+            UILabel *timeInfo = (UILabel*)[self.view viewWithTag:106];
+            timeInfo.text = [NSString stringWithFormat:@"%d/%d  剩餘：%02d:%02d",[SharedSettings settings].nowLP,[SharedSettings settings].allLP,nextLP/60,nextLP-nextLP/60*60];
+            XCProgressView *progress = (XCProgressView*)[self.view viewWithTag:107];
+            progress.minValue = 0;
+            progress.maxValue = [SharedSettings settings].allLP;
+            progress.nowValue = [SharedSettings settings].nowLP*1.0;
+            if (!self.isSentLocalNot) {
+                NSDate *newalt = [[NSDate new] dateByAddingTimeInterval:[SharedSettings settings].alertLPtime];
+                [XCLocalNotification startLocalNotification:@"LP值恢復提醒！查看此消息可以直接進入遊戲~" Date:newalt];
+                self.isSentLocalNot = YES;
+                [self openAlt:[NSString stringWithFormat:@"新的計時任務已經啓動。\n到達你設定的時間後，\n將通過通知中心提醒你。\n可以 系統設置-通知 修改提醒方式。\n計時中可以將本程序最小化。\n將在%@發出提醒。",[self stringFromDate:newalt]]];
+            }
+            UILabel *titlebarL = (UILabel*)[self.view viewWithTag:103];
+            if (self.runnshow) {
+                titlebarL.text = @"LP恢復計時器：正在運行 ◈";
+            } else {
+                titlebarL.text = @"LP恢復計時器：正在運行";
+            }
+            self.runnshow = !self.runnshow;
         }
-        self.runnshow = !self.runnshow;
     }
 }
 - (NSDate *)dateFromString:(NSString *)dateString {

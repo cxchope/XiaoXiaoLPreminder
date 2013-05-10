@@ -22,6 +22,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
     [SharedSettings loadSettings];
     
     YashiViewController *yv = [[YashiViewController alloc] init];

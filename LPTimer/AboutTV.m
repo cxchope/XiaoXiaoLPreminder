@@ -8,6 +8,7 @@
 
 #import "AboutTV.h"
 #import "AboutCell.h"
+#import "XCFrame.h"
 @implementation AboutTV
 @synthesize tableArray = _tableArray, tableView = _tableView, yl = _yl;
 - (id)initWithFrame:(CGRect)frame
@@ -57,7 +58,7 @@
 #pragma mark 行高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 25;
+    return [XCFrame cellHeight];
 }
 #pragma mark 表格内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

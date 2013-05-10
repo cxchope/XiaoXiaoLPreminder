@@ -7,14 +7,14 @@
 //
 
 #import "InfoCell.h"
-
+#import "XCFrame.h"
 @implementation InfoCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.textLabel.font = [UIFont systemFontOfSize:15];
+        self.textLabel.font = [XCFrame tableFont:1];
         self.textLabel.shadowColor = [UIColor orangeColor];
         self.textLabel.shadowOffset = CGSizeMake(2, 2);
     }
