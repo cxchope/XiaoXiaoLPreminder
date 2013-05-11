@@ -9,6 +9,7 @@
 #import "AboutTV.h"
 #import "AboutCell.h"
 #import "XCFrame.h"
+#import "XCLocalNotification.h"
 @implementation AboutTV
 @synthesize tableArray = _tableArray, tableView = _tableView, yl = _yl;
 - (id)initWithFrame:(CGRect)frame
@@ -19,7 +20,8 @@
         self.yl = NO;
         self.tableArray = [NSMutableArray arrayWithObjects:
                            @"ლ(╹◡╹ლ) 歡迎使用LP提醒工具 ლ(╹◡╹ლ)",
-                           @"   本程序可以幫你防止LP的浪費。",
+                           @"   本程序可以幫你防止LP的浪費。版本：0.7(Preview)",
+                           @"   如果想要提供建議或報告問題，請聯繫：",
                            @"   by 神楽坂雅詩 (點擊訪問作者Google+)",
                            @" ",
                            @"本程序僅供學習交流使用，圖標素材取自遊戲",
@@ -31,6 +33,9 @@
                            @" ﹣ 知识共享署名-非商业性使用 3.0 未本地化版本",
                            @"   本軟件為開放源代碼軟件，可在署名的前提下自由傳播，",
                            @"   您不得将本作品用于商业目的，不得發佈到AppStore。",
+                           @" ",
+                           @"如果數據有意外錯誤，請聯繫作者并嘗試復位程序。",
+                           @" ﹣ 還原本程序所有數據和設置",
                            nil];
         UITableView *tableView  = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
         tableView.delegate = self;
@@ -86,15 +91,52 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%d:%d",indexPath.section,indexPath.row);
-    if (indexPath.row == 6) {
+    if (indexPath.row == 7) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/jp/app/raburaibu!-sukuruaidorufesutibaru/id626776655?mt=8"]];
-    } else if (indexPath.row == 7) {
+    } else if (indexPath.row == 8) {
         [SharedSettings openGAME];
-    } else if (indexPath.row == 2) {
+    } else if (indexPath.row == 3) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://plus.google.com/105938465531761409080/about"]];
-    } else if (indexPath.row == 9 || indexPath.row == 10) {
+    } else if (indexPath.row == 10 || indexPath.row == 11) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://creativecommons.org/licenses/by-nc/3.0/"]];
+    } else if (indexPath.row == 16) {
+        [self resetSettings];
     }
+}
+- (void)resetSettings
+{
+    UIAlertView*alert = [[UIAlertView alloc]initWithTitle:@"警告"
+                                                  message:@"真的要刪除所有設置嗎？\n完成后程序將自動退出。"
+                                                 delegate:self
+                                        cancelButtonTitle:@"取消"
+                                        otherButtonTitles:@"刪除并退出",nil];
+    [alert show];
+    [alert release];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        UIAlertView*alert = [[UIAlertView alloc]initWithTitle:@"請等待"
+                                                      message:@"完成後程式將自動退出"
+                                                     delegate:nil
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        [NSTimer scheduledTimerWithTimeInterval:3 target: self selector: @selector(deleteTimer:) userInfo: nil repeats: NO];
+        [XCLocalNotification deleteLocalNotification];
+        [SharedSettings settings].nowLP = [SharedSettings settings].alertLPtime;
+        [SharedSettings settings].alertLPtime = 0;
+        [SharedSettings settings].allLPtime = 0;
+        [SharedSettings settings].running = NO;
+        [SharedSettings settings].readyrunning = NO;
+        [SharedSettings settings].noFirstRUN = NO;
+        [SharedSettings saveSettings];
+    }
+}
+- (void)deleteTimer:(NSTimer *)timer
+{
+    exit(0);
 }
 - (void)tt:(NSNotification *)no
 {

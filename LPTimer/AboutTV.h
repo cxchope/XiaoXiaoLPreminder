@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutTV : UIView <UITableViewDelegate, UITableViewDataSource>
+@interface AboutTV : UIView <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 {
     NSMutableArray *_tableArray;
     UITableView *_tableView;

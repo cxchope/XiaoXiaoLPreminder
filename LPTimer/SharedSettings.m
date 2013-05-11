@@ -98,11 +98,15 @@
 {
     NSURL *gameuid = [NSURL URLWithString:@"fb119355104914816:/"];
     if ([[UIApplication sharedApplication] canOpenURL:gameuid]) {
-        
+        [[UIApplication sharedApplication] openURL:gameuid];
+    } else {
+        UIAlertView*alert = [[UIAlertView alloc]initWithTitle:@"啟動遊戲失敗"
+                                                      message:@"因為遇到了一個錯誤，未能啟動遊戲。\n可能是你沒有安裝這款遊戲。如果你已經裝有此遊戲，請將遇到的問題告訴作者。"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"請從主屏啟動遊戲"
+                                            otherButtonTitles:nil];
+        [alert show];
+        [alert release];
     }
-    
-    
-
-    [[UIApplication sharedApplication] openURL:gameuid];
 }
 @end

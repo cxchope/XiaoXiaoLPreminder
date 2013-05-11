@@ -21,6 +21,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    NSLog(@"軟件安裝文件夾：%@", NSHomeDirectory());
 
     [application registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeBadge |

@@ -121,7 +121,7 @@
     BackGroundMusicView *bgmBtn = (BackGroundMusicView*)[self.view viewWithTag:909];
     [bgmBtn bringToFront];
     
-    NSArray *btntxts = [NSArray arrayWithObjects:@"總體狀況",@"變更參數",@"操作記錄",@"開始計時",@"啟動遊戲",@"停止任務",@"關於聲明", nil];
+    NSArray *btntxts = [NSArray arrayWithObjects:@"總體狀況",@"變更參數",@"待定功能",@"開始計時",@"啟動遊戲",@"停止任務",@"關於聲明", nil];
     for (int i = 1; i < btntxts.count+1; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = [cf mainBtnRects:[NSString stringWithFormat:@"btn%d",i]];
@@ -165,7 +165,7 @@
             [self openSett]; [self removeOldView]; self.onBtn = btn.tag;
             break;
         case 203:
-            [self openAlt:@"此功能正在制作中。"];
+            [self openAlt:@"這裏的功能還處於待定狀態，沒有製作。\n我還沒有想好在這裏放什麼，比如為其它遊戲計時，或者保存歷史記錄，或者顯示一些在線信息什麼的。這裏在以後的版本中添加吧。"];
             break;
         case 204:
             [self startTime];
