@@ -26,6 +26,7 @@
 		00EC6EA217366DE000E5697B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EC6EA117366DE000E5697B /* Default-568h@2x.png */; };
 		00EC6EAA1736789800E5697B /* LocalNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC6EA91736789800E5697B /* LocalNotificationsManager.m */; };
 		00EC6EAD1736856000E5697B /* XCLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC6EAC1736856000E5697B /* XCLocalNotification.m */; };
+		00FC6635173FB3E200BD2BFA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00FC6637173FB3E200BD2BFA /* Localizable.strings */; };
 		940423BB1739FA3B002FB4FE /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 940423BA1739FA3B002FB4FE /* icon.jpg */; };
 		9418A141173B9D4C00C162C3 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9418A140173B9D4C00C162C3 /* UIView+Hierarchy.m */; };
 		9418A145173BA4ED00C162C3 /* ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9418A144173BA4ED00C162C3 /* ipad.xib */; };
@@ -75,7 +76,6 @@
 		00EC6E8D17366DE000E5697B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00EC6E8F17366DE000E5697B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		00EC6E9317366DE000E5697B /* LPTimer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LPTimer-Info.plist"; sourceTree = "<group>"; };
-		00EC6E9517366DE000E5697B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00EC6E9717366DE000E5697B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00EC6E9917366DE000E5697B /* LPTimer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LPTimer-Prefix.pch"; sourceTree = "<group>"; };
 		00EC6E9A17366DE000E5697B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,6 +87,10 @@
 		00EC6EA91736789800E5697B /* LocalNotificationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationsManager.m; sourceTree = "<group>"; };
 		00EC6EAB1736856000E5697B /* XCLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLocalNotification.h; sourceTree = "<group>"; };
 		00EC6EAC1736856000E5697B /* XCLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCLocalNotification.m; sourceTree = "<group>"; };
+		00FC6638173FB47D00BD2BFA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		00FC6639173FB47D00BD2BFA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		00FC663A173FB49B00BD2BFA /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		00FC663B173FB49B00BD2BFA /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		940423BA1739FA3B002FB4FE /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		9418A13F173B9D4C00C162C3 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
 		9418A140173B9D4C00C162C3 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		00EC6E7F17366DE000E5697B = {
 			isa = PBXGroup;
 			children = (
+				00FC6637173FB3E200BD2BFA /* Localizable.strings */,
 				002643781737E27800CE92C5 /* AVFoundation.framework */,
 				00EC6E9117366DE000E5697B /* LPTimer */,
 				00EC6E8A17366DE000E5697B /* Frameworks */,
@@ -406,6 +411,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
+				"zh-Hant-TW",
 			);
 			mainGroup = 00EC6E7F17366DE000E5697B;
 			productRefGroup = 00EC6E8917366DE000E5697B /* Products */;
@@ -448,6 +455,7 @@
 				00B88979173E7E59003F895C /* 72.png in Resources */,
 				00B8897A173E7E59003F895C /* 114.png in Resources */,
 				00B8897B173E7E59003F895C /* 144.png in Resources */,
+				00FC6635173FB3E200BD2BFA /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,9 +495,19 @@
 		00EC6E9417366DE000E5697B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				00EC6E9517366DE000E5697B /* en */,
+				00FC6639173FB47D00BD2BFA /* zh-Hans */,
+				00FC663B173FB49B00BD2BFA /* zh-Hant-TW */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		00FC6637173FB3E200BD2BFA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00FC6638173FB47D00BD2BFA /* zh-Hans */,
+				00FC663A173FB49B00BD2BFA /* zh-Hant-TW */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

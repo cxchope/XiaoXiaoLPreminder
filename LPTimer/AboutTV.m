@@ -19,23 +19,25 @@
 //        self.backgroundColor = [UIColor clearColor];
         self.yl = NO;
         self.tableArray = [NSMutableArray arrayWithObjects:
-                           @"ლ(╹◡╹ლ) 歡迎使用LP提醒工具 ლ(╹◡╹ლ)",
-                           @"   本程序可以幫你防止LP的浪費。版本：0.7(Preview)",
-                           @"   如果想要提供建議或報告問題，請聯繫：",
-                           @"   by 神楽坂雅詩 (點擊訪問作者Google+)",
+                           NSLocalizedString(@"aboutTV1", @""),
+                           NSLocalizedString(@"aboutTV2", @""),
+                           NSLocalizedString(@"aboutTV3", @""),
+                           NSLocalizedString(@"aboutTV4", @""),
                            @" ",
-                           @"本程序僅供學習交流使用，圖標素材取自遊戲",
+                           NSLocalizedString(@"aboutTV6", @""),
                            @"「ラブライブ！ スクールアイドルフェスティバル」",
-                           @" ﹣ 點這裡從AppStore下載此遊戲",
-                           @" ﹣ 點這裡打開本機中已經安裝的此遊戲",
+                           NSLocalizedString(@"aboutTV8", @""),
+                           NSLocalizedString(@"aboutTV9", @""),
                            @" ",
-                           @"本作品采用此许可协议进行许可(點擊訪問CC)：",
-                           @" ﹣ 知识共享署名-非商业性使用 3.0 未本地化版本",
-                           @"   本軟件為開放源代碼軟件，可在署名的前提下自由傳播，",
-                           @"   您不得将本作品用于商业目的，不得發佈到AppStore。",
+                           NSLocalizedString(@"aboutTV11", @""),
+                           NSLocalizedString(@"aboutTV12", @""),
+                           NSLocalizedString(@"aboutTV13", @""),
+                           NSLocalizedString(@"aboutTV14", @""),
                            @" ",
-                           @"如果數據有意外錯誤，請聯繫作者并嘗試復位程序。",
-                           @" ﹣ 還原本程序所有數據和設置",
+                           NSLocalizedString(@"aboutTV16", @""),
+                           NSLocalizedString(@"aboutTV17", @""),
+                           @" ",
+                           NSLocalizedString(@"aboutTV19", @""),
                            nil];
         UITableView *tableView  = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
         tableView.delegate = self;

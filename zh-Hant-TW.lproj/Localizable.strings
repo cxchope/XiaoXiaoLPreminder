@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  LPTimer
+
+  Created by 彩虹の旅途 on 13-5-12.
+  Copyright (c) 2013年 神楽坂雅詩. All rights reserved.
+ 
+ 增加新語言請聯繫作者：https://plus.google.com/105938465531761409080/about
+*/
+
+//AboutTV.h
+//"aboutTV1" = "ლ(╹◡╹ლ) 歡迎使用LP提醒工具 ლ(╹◡╹ლ)";
+//"aboutTV2" = "   本程序可以幫你防止LP的浪費。版本：0.7(Preview)";
+//"aboutTV3" = "   如果想要提供建議或報告問題，請聯繫：";
+//"aboutTV4" = "   by 神楽坂雅詩 (點擊訪問作者Google+)";
+//
+//"aboutTV6" = "本程序僅供學習交流使用，圖標素材取自遊戲";
+//
+//"aboutTV8" = " ﹣ 點這裡從AppStore下載此遊戲";
+//"aboutTV9" = " ﹣ 點這裡打開本機中已經安裝的此遊戲";
+//
+//"aboutTV11" = "本作品采用此许可协议进行许可(點擊訪問CC)：";
+//"aboutTV12" = " ﹣ 知识共享署名-非商业性使用 3.0 未本地化版本";
+//"aboutTV13" = "   本軟件為開放源代碼軟件，可在署名的前提下自由傳播，";
+//"aboutTV14" = "   您不得将本作品用于商业目的，不得發佈到AppStore。";
+//
+//"aboutTV16" = "如果數據有意外錯誤，請聯繫作者并嘗試復位程序。";
+//"aboutTV17" = " ﹣ 還原本程序所有數據和設置";
+//
+//"aboutTV19" = "當前語言包作者：神楽坂雅詩";
